@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Polaris-Label__Text {
+  font-size: 1.4rem;
+  position: relative !important;
+  top: 13px;
+  opacity: 1;
+  z-index: 200 !important;
+  background: white !important;
+  left: 10px;
+}
