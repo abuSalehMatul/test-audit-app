@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/test-audit-app/static/css/main.ab45fb37.css",
-    "main.js": "/test-audit-app/static/js/main.6b8e4112.js",
+    "main.js": "/test-audit-app/static/js/main.b172e0e2.js",
     "static/js/787.c800c59a.chunk.js": "/test-audit-app/static/js/787.c800c59a.chunk.js",
     "index.html": "/test-audit-app/index.html",
     "main.ab45fb37.css.map": "/test-audit-app/static/css/main.ab45fb37.css.map",
-    "main.6b8e4112.js.map": "/test-audit-app/static/js/main.6b8e4112.js.map",
+    "main.b172e0e2.js.map": "/test-audit-app/static/js/main.b172e0e2.js.map",
     "787.c800c59a.chunk.js.map": "/test-audit-app/static/js/787.c800c59a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab45fb37.css",
-    "static/js/main.6b8e4112.js"
+    "static/js/main.b172e0e2.js"
   ]
 }
