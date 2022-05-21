@@ -6,6 +6,7 @@ import Popper from 'popper.js';
 import { AppProvider, Page, Frame } from "@shopify/polaris";
 import '@shopify/polaris/styles.css'
 import './index.css';
+import "./index.scss";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

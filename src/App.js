@@ -25,13 +25,6 @@ export class App extends Component {
   async handleSave(){
     console.log("hi")
     if(this.state.name != ""){
-      // axios.post("https://57pb8lo6i6.execute-api.us-east-1.amazonaws.com/dev/hello", {
-      //   name: this.state.name,
-      //   city:this.state.city,
-      //   site:this.state.siteDescription,
-      //   latitude: this.state.latitude,
-      //   longitude: this.state.longitude
-      // })
       const response = await axios({
 				url: "https://57pb8lo6i6.execute-api.us-east-1.amazonaws.com/dev/hello",
 				method: 'POST',
@@ -44,6 +37,8 @@ export class App extends Component {
         }),
 				responseType: 'json'
 			})
+    }else {
+      alert("please provide the name");
     }
   }
   render() {
@@ -56,8 +51,11 @@ export class App extends Component {
           {this.state.active ? <div className='bg-white m-auto p-4 col-md-12 col-12'>
             <div className='d-flex col-md-10 m-auto'>
               <div className='col-md-2 col-6'> <Button onClick={this.handleSave}
-              label="Save">Save</Button> </div>
-              <div className='col-md-2 col-6'> <Button onClick={() => { this.setState({ active: false }) }} label="Cancel">Cancel</Button> </div>
+              label="Save"><i class="fa-solid fa-floppy-disk pe-2"></i>Save</Button> </div>
+              <div className='col-md-2 col-6'> 
+              
+              <Button onClick={() => { this.setState({ active: false }) }} label="Cancel">
+                <i className='fa fa-times pe-2'></i>Cancel</Button> </div>
               <hr></hr>
             </div>
 
@@ -95,7 +93,7 @@ export class App extends Component {
         </div>
         <div className='col-md-10 col-10'>
           <div>
-            <h1>Audit Log</h1>
+            <h1 style={{fontSize:"18px"}}><b>Audit Log</b></h1>
           </div>
           <hr></hr>
           <div>
