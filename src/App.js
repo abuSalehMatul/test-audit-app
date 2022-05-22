@@ -8,6 +8,7 @@ import {
   Button
 } from "@shopify/polaris";
 import axios from 'axios';
+import moment from 'moment';
 export class App extends Component {
   constructor(props) {
     super(props)
@@ -25,38 +26,53 @@ export class App extends Component {
 
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getData();
   }
-  async handleSave(){
-    console.log("hi")
-    if(this.state.name != ""){
+  async handleSave() {
+    if (this.state.name != "") {
+      let time = moment(new Date()).format('MMM DD, Y hh:mm A z')
+      console.log({
+        name: this.state.name,
+        city: this.state.city,
+        site: this.state.siteDescription,
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
+        time: time
+      });
       const response = await axios({
-				url: "https://57pb8lo6i6.execute-api.us-east-1.amazonaws.com/dev/hello",
-				method: 'POST',
-				data: JSON.stringify({
+        url: "https://57pb8lo6i6.execute-api.us-east-1.amazonaws.com/dev/hello",
+        method: 'POST',
+        data: JSON.stringify({
           name: this.state.name,
-          city:this.state.city,
-          site:this.state.siteDescription,
+          city: this.state.city,
+          site: this.state.siteDescription,
           latitude: this.state.latitude,
-          longitude: this.state.longitude
+          longitude: this.state.longitude,
+          time: time
         }),
-				responseType: 'json'
-			})
-    }else {
+        responseType: 'json'
+      })
+    } else {
       alert("please provide the name");
     }
   }
 
-  async getData(){
+  async getData() {
     const bucketFile = "audit-test.json";
     let prviousData = await axios.get(`https://temporary-audit-test.s3.amazonaws.com/${bucketFile}`);
     this.setState({
-      allData:prviousData.data
+      allData: prviousData.data.data
     })
-    console.log("get data", prviousData);
+    //console.log("get data", prviousData?.data.data);
   }
   render() {
+    let history = [];
+    this.state.allData.forEach(el => {
+      history.push(<p key={Math.random()}>
+        Created by {el.name} In {el.time} {el.city ? `From ${el.city}`: ""}
+      </p>)
+    })
     return (
       <div className='col-md-10 container'>
         <div>
@@ -66,11 +82,11 @@ export class App extends Component {
           {this.state.active ? <div className='bg-white m-auto p-4 col-md-12 col-12'>
             <div className='d-flex col-md-10 m-auto'>
               <div className='col-md-2 col-6'> <Button onClick={this.handleSave}
-              label="Save"><i class="fa-solid fa-floppy-disk pe-2"></i>Save</Button> </div>
-              <div className='col-md-2 col-6'> 
-              
-              <Button onClick={() => { this.setState({ active: false }) }} label="Cancel">
-                <i className='fa fa-times pe-2'></i>Cancel</Button> </div>
+                label="Save"><i className="fa-solid fa-floppy-disk pe-2"></i>Save</Button> </div>
+              <div className='col-md-2 col-6'>
+
+                <Button onClick={() => { this.setState({ active: false }) }} label="Cancel">
+                  <i className='fa fa-times pe-2'></i>Cancel</Button> </div>
               <hr></hr>
             </div>
 
@@ -108,11 +124,13 @@ export class App extends Component {
         </div>
         <div className='col-md-10 col-10'>
           <div>
-            <h1 style={{fontSize:"18px"}}><b>Audit Log</b></h1>
+            <h1 style={{ fontSize: "18px" }}><b>Audit Log</b></h1>
           </div>
           <hr></hr>
           <div>
-            <p>Created by Symon on 12/2/22 12:00AM</p>
+            {
+              history
+            }
           </div>
         </div>
       </div>
