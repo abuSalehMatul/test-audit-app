@@ -17,11 +17,17 @@ export class App extends Component {
       city: "",
       siteDescription: "",
       latitude: "",
-      longitude: ""
+      longitude: "",
+      allData: []
     }
     this.handleSave = this.handleSave.bind(this)
+    this.getData = this.getData.bind(this);
+
   }
 
+  componentDidMount(){
+    this.getData();
+  }
   async handleSave(){
     console.log("hi")
     if(this.state.name != ""){
@@ -40,6 +46,15 @@ export class App extends Component {
     }else {
       alert("please provide the name");
     }
+  }
+
+  async getData(){
+    const bucketFile = "audit-test.json";
+    let prviousData = await axios.get(`https://temporary-audit-test.s3.amazonaws.com/${bucketFile}`);
+    this.setState({
+      allData:prviousData.data
+    })
+    console.log("get data", prviousData);
   }
   render() {
     return (
