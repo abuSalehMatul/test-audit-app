@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/test-audit-app/static/css/main.ab45fb37.css",
-    "main.js": "/test-audit-app/static/js/main.b172e0e2.js",
+    "main.css": "/test-audit-app/static/css/main.dc20c3b4.css",
+    "main.js": "/test-audit-app/static/js/main.bc22b5a8.js",
     "static/js/787.c800c59a.chunk.js": "/test-audit-app/static/js/787.c800c59a.chunk.js",
+    "static/media/fa-solid-900.ttf": "/test-audit-app/static/media/fa-solid-900.e615bbcb258550973c16.ttf",
+    "static/media/fa-brands-400.ttf": "/test-audit-app/static/media/fa-brands-400.b823fc0dbb5a5f0c21bb.ttf",
+    "static/media/fa-solid-900.woff2": "/test-audit-app/static/media/fa-solid-900.59edf72a325ac2048d60.woff2",
+    "static/media/fa-brands-400.woff2": "/test-audit-app/static/media/fa-brands-400.ebb7a127d2d8ee6f1832.woff2",
+    "static/media/fa-regular-400.ttf": "/test-audit-app/static/media/fa-regular-400.0d03b1bbd1d62c1e1284.ttf",
+    "static/media/fa-regular-400.woff2": "/test-audit-app/static/media/fa-regular-400.0caf4c6cf244a90efcc5.woff2",
     "index.html": "/test-audit-app/index.html",
-    "main.ab45fb37.css.map": "/test-audit-app/static/css/main.ab45fb37.css.map",
-    "main.b172e0e2.js.map": "/test-audit-app/static/js/main.b172e0e2.js.map",
+    "main.dc20c3b4.css.map": "/test-audit-app/static/css/main.dc20c3b4.css.map",
+    "main.bc22b5a8.js.map": "/test-audit-app/static/js/main.bc22b5a8.js.map",
     "787.c800c59a.chunk.js.map": "/test-audit-app/static/js/787.c800c59a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ab45fb37.css",
-    "static/js/main.b172e0e2.js"
+    "static/css/main.dc20c3b4.css",
+    "static/js/main.bc22b5a8.js"
   ]
 }
